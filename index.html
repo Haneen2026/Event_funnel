@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>True Care Workshop</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="script.js" defer></script>
+</head>
+<body>
+    <header>
+        <div class="logo">
+            <img src="assests/LOGO.png" alt="True Care Workshop Logo">
+        </div>
+    </header>
+
+    <h1 class="hero-title">🌿Transform Your Self-Care Routine🌿</h1>
+    <div class="video-intro">
+        <span class="line"></span>
+        <p>Press play and step into the story of True Care Workshop.</p>
+        <span class="line"></span>
+    </div>
+
+    <section class="hero">
+        <div class="video-wrapper" id="video-wrapper">
+            <video
+                id="hero-video"
+                muted
+                playsinline
+                controlslist="nodownload noplaybackrate noremoteplayback nopictureinpicture"
+                disablepictureinpicture
+                preload="metadata"
+            >
+                <source src="assests/Mindful Personal Care Choices.mp4" type="video/mp4">
+            </video>
+
+            <button id="play-pause-btn" class="play-pause-btn">▶</button>
+            <button id="fullscreen-btn" class="fullscreen-btn">⛶</button>
+
+            <!-- Progress Bar -->
+            <div class="progress-container">
+                <div id="progress-bar" class="progress-bar"></div>
+            </div>
+           
+        </div>
+    </section>
+    <!-- Normal About Section for scroll fallback -->
+<section class="about">
+    <h2>About True Care Workshop</h2>
+    <p>
+        True Care Workshop is a <strong><u>free</u></strong> community workshop offering a hands-on experience with natural personal care products.
+    </p>
+    <p>
+        This workshop is designed to introduce participants to the world of clean, conscious formulation using safe, transparent ingredients.
+    </p>
+    <p> 
+        You will learn how natural soap and shampoo are made, why ingredient choice matters, and how to build healthier daily routines through informed decisions.
+    </p>
+    <a href="bottom.html" class="cta-btn">Join Now</a>
+</section>
+
+<!-- CTA BUTTON 2 (hidden at start) -->
+<a href="middleFirst.html" id="cta-button2" class="cta-button2" aria-label="Next">
+    <img src="assests/learn_more.png" alt="">
+    <span class="next-text">Next</span>
+</a>
+
+<!-- CTA BUTTON 1 -->
+<button id="cta-button1" class="cta-button1" aria-label="Next">
+    <img src="assests/learn_more.png" alt="">
+    <span class="next-text">Next</span>
+</button>
+
+
+</body>
+</html>
