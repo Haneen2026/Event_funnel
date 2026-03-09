@@ -215,7 +215,7 @@ document.addEventListener('DOMContentLoaded', function () {
                 reviewCards.forEach(card => card.classList.remove('active'));
                 // Show first card
                 showSlide(0);
-                startAutoplay();
+                // Autoplay removed - only manual navigation
             }
 
             // Show specific slide
@@ -288,7 +288,6 @@ document.addEventListener('DOMContentLoaded', function () {
                 nextBtn.addEventListener('click', (e) => {
                     e.preventDefault();
                     nextSlide();
-                    resetAutoplay();
                 });
             }
 
@@ -296,7 +295,6 @@ document.addEventListener('DOMContentLoaded', function () {
                 prevBtn.addEventListener('click', (e) => {
                     e.preventDefault();
                     prevSlide();
-                    resetAutoplay();
                 });
             }
 
@@ -305,45 +303,38 @@ document.addEventListener('DOMContentLoaded', function () {
                 indicator.addEventListener('click', (e) => {
                     e.preventDefault();
                     goToSlide(index);
-                    resetAutoplay();
                 });
             });
 
-            // Pause autoplay on hover
-            const carouselContainer = document.querySelector('.reviews-container');
-            if (carouselContainer) {
-                carouselContainer.addEventListener('mouseenter', stopAutoplay);
-                carouselContainer.addEventListener('mouseleave', startAutoplay);
-            }
+            // Autoplay functionality removed - manual navigation only
 
             // Keyboard navigation (only when carousel is in view)
             function handleKeyPress(e) {
+                const carouselContainer = document.querySelector('.reviews-container');
                 const carouselInView = carouselContainer && carouselContainer.getBoundingClientRect().top < window.innerHeight;
                 if (!carouselInView) return;
 
                 if (e.key === 'ArrowLeft') {
                     e.preventDefault();
                     prevSlide();
-                    resetAutoplay();
                 } else if (e.key === 'ArrowRight') {
                     e.preventDefault();
                     nextSlide();
-                    resetAutoplay();
                 }
             }
 
             document.addEventListener('keydown', handleKeyPress);
 
-            // Touch/swipe support for mobile
+            // Touch/swipe support for mobile - manual only
             let touchStartX = 0;
             let touchEndX = 0;
             let isDragging = false;
+            const carouselContainer = document.querySelector('.reviews-container');
 
             if (carouselContainer) {
                 carouselContainer.addEventListener('touchstart', (e) => {
                     touchStartX = e.changedTouches[0].screenX;
                     isDragging = true;
-                    stopAutoplay();
                 }, { passive: true });
 
                 carouselContainer.addEventListener('touchmove', (e) => {
@@ -356,7 +347,6 @@ document.addEventListener('DOMContentLoaded', function () {
                     touchEndX = e.changedTouches[0].screenX;
                     isDragging = false;
                     handleSwipe();
-                    startAutoplay();
                 }, { passive: true });
             }
 
@@ -376,10 +366,7 @@ document.addEventListener('DOMContentLoaded', function () {
             // Initialize the carousel
             initCarousel();
 
-            // Clean up on page unload
-            window.addEventListener('beforeunload', () => {
-                stopAutoplay();
-            });
+            // Clean up on page unload - no autoplay to stop
         }
     }
 

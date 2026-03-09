@@ -583,6 +583,56 @@ header {
     font-size: 0.95rem;
     line-height: 1.6;
 }
+
+/* ========================================
+   FAQ MOBILE OPTIMIZATION
+   ======================================== */
+@media (max-width: 768px) {
+    .faq-container {
+        margin-top: 20px;
+        margin-left: 15px;
+        margin-right: 15px;
+        gap: 15px;
+        padding: 0 5px;
+    }
+
+    .faq-item {
+        padding: 4px 0;
+        margin-bottom: 2px;
+    }
+
+    .faq-question {
+        padding: 6px 6px;
+        font-size: 0.9rem;
+        margin-bottom: 0;
+    }
+
+    .faq-question::after {
+        right: 6px;
+        font-size: 1.2rem;
+    }
+
+    .faq-answer p {
+        padding: 0 6px 8px 6px;
+        font-size: 0.85rem;
+        line-height: 1.4;
+        margin: 0;
+    }
+
+    .faq-item.active .faq-answer {
+        max-height: 250px;
+    }
+
+    .faq-section {
+        padding: 60px 20px 40px 20px;
+    }
+
+    .faq-title {
+        margin-top: 30px;
+        margin-bottom: 20px;
+    }
+}
+
 .registration-section {
     max-width: 400px;
     margin: 30px auto;
@@ -1138,8 +1188,8 @@ header {
 
   .reviews-container {
     max-width: 100%;
-    padding: 0 50px;
-    margin: 0 10px;
+    padding: 0 20px;
+    margin: 0 auto;
   }
 
   .review-card {
