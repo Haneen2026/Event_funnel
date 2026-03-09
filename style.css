@@ -8,6 +8,8 @@ body {
     font-family: Arial, sans-serif;
     line-height: 1.4;
     position: relative;
+    overflow-x: hidden; /* Prevent horizontal scrolling by default */
+    min-width: 320px; /* Minimum width support */
 }
 
 body.confirmation-page::before {
@@ -46,6 +48,9 @@ header {
     display: block;
     height: 100px;
     width: 250px;
+    max-width: 100%; /* Ensure logo doesn't overflow */
+    height: auto; /* Maintain aspect ratio */
+    object-fit: contain; /* Ensure proper scaling */
 }
 
 .hero {
@@ -112,9 +117,11 @@ header {
 .video-wrapper {
     position: relative;
     width: 70%;
+    max-width: 1200px; /* Maximum width for large screens */
     aspect-ratio: 16/9;
     background: black;
     overflow: hidden; /* Prevent any overflow */
+    margin: 0 auto; /* Center the video */
 }
 
 /* Show controls on hover */
@@ -264,6 +271,10 @@ header {
     justify-content: center;
     margin-top: 60px;
     flex-wrap: wrap;
+    padding: 0 20px; /* Add padding to prevent edge overflow */
+    max-width: 1200px; /* Maximum width for large screens */
+    margin-left: auto;
+    margin-right: auto;
 }
 
 .card {
@@ -509,12 +520,16 @@ header {
 }
 /* FAQ Styles */
 .faq-container {
-    margin-top: 50 px;
+    margin-top: 50px;
     margin-left: 60px;
     margin-right: 60px;
     display: flex;
     gap: 40px;
     text-align: left;
+    max-width: 1200px; /* Maximum width for large screens */
+    margin-left: auto;
+    margin-right: auto;
+    padding: 0 20px; /* Add padding to prevent edge overflow */
 }
 
 .faq-column {
@@ -577,6 +592,9 @@ header {
     border-radius: 25px;
     box-shadow: 0 20px 60px rgba(0,0,0,0.08);
     text-align: center;
+    width: 90%; /* Responsive width */
+    max-width: 500px; /* Maximum width */
+    min-width: 300px; /* Minimum width */
   }
   
   .registration-title {
@@ -713,6 +731,8 @@ header {
       0 8px 16px rgba(0, 0, 0, 0.08),
       inset 0 1px 0 rgba(255, 255, 255, 0.8);
     overflow: hidden;
+    width: 90%; /* Responsive width */
+    min-width: 300px; /* Minimum width */
   }
 
   .confirmation-container::before {
@@ -1225,4 +1245,948 @@ header {
     border-radius: 50px;
     cursor: pointer;
     transition: all 0.3s ease;
+}
+
+/* ========================================
+   MOBILE RESPONSIVE DESIGN (320px - 480px)
+   ======================================== */
+@media (max-width: 480px) {
+    /* Prevent horizontal scrolling */
+    body {
+        overflow-x: hidden;
+        min-width: 320px;
+    }
+    
+    /* Header adjustments */
+    header {
+        height: 80px;
+        padding: 0 1rem;
+    }
+    
+    .logo img {
+        width: 180px;
+        height: 70px;
+    }
+    
+    /* Hero sections */
+    .hero-title,
+    .hero-title1 {
+        font-size: 1.8rem;
+        margin-top: 100px;
+        padding: 0 1rem;
+        line-height: 1.3;
+    }
+    
+    .video-intro {
+        margin-top: 40px;
+        font-size: 0.9rem;
+        padding: 0 1rem;
+    }
+    
+    .video-intro .line {
+        width: 25px;
+    }
+    
+    /* Video wrapper */
+    .video-wrapper {
+        width: 95%;
+        margin: 20px auto;
+    }
+    
+    .play-pause-btn,
+    .fullscreen-btn {
+        width: 45px;
+        height: 45px;
+        font-size: 18px;
+        bottom: 15px;
+    }
+    
+    .play-pause-btn { left: 15px; }
+    .fullscreen-btn { right: 15px; }
+    
+    .progress-container {
+        left: 15px;
+        right: 15px;
+        bottom: 5px;
+    }
+    
+    /* About section */
+    .about {
+        margin: 40px 1rem 60px 1rem;
+        padding: 30px 20px;
+    }
+    
+    .about h2 {
+        font-size: 1.6rem;
+    }
+    
+    .about p {
+        font-size: 1.1rem;
+        line-height: 1.6;
+    }
+    
+    /* Card container */
+    .card-container {
+        flex-direction: column;
+        align-items: center;
+        margin: 30px 1rem;
+        gap: 20px;
+    }
+    
+    .card {
+        width: 100%;
+        max-width: 350px;
+        height: auto;
+        min-height: 350px;
+    }
+    
+    .card-upper {
+        height: 80px;
+        padding: 20px;
+    }
+    
+    .card-upper h2 {
+        font-size: 1.2rem;
+    }
+    
+    .card-bottom {
+        padding: 20px;
+    }
+    
+    .card-bottom p,
+    .card-bottom li {
+        font-size: 0.95rem;
+    }
+    
+    /* CTA Buttons */
+    .cta-btn {
+        font-size: 1.1rem;
+        padding: 10px 20px;
+    }
+    
+    .cta-btn.joinNowBtn {
+        width: 150px;
+        font-size: 1rem;
+        padding: 8px 15px;
+    }
+    
+    .cta-button1,
+    .cta-button2 {
+        width: 60px;
+        margin: 30px auto 15px auto;
+    }
+    
+    .next-text {
+        font-size: 18px;
+        letter-spacing: 1px;
+    }
+    
+    /* FAQ Section */
+    .faq-container {
+        margin: 30px 1rem;
+        flex-direction: column;
+        gap: 20px;
+    }
+    
+    .faq-title {
+        font-size: 1.3rem;
+        margin: 30px 1rem 20px 1rem;
+    }
+    
+    .faq-question {
+        font-size: 0.9rem;
+        padding: 15px 10px;
+        text-align: left;
+    }
+    
+    .faq-answer p {
+        font-size: 0.85rem;
+        padding: 0 10px 15px 10px;
+    }
+    
+    /* Reviews Carousel */
+    .reviews-section {
+        padding: 40px 1rem;
+    }
+    
+    .reviews-title {
+        font-size: 1.5rem;
+        margin-bottom: 30px;
+    }
+    
+    .review-card {
+        padding: 25px 20px;
+    }
+    
+    .review-text {
+        font-size: 1rem;
+    }
+    
+    .carousel-prev,
+    .carousel-next {
+        width: 40px;
+        height: 40px;
+        font-size: 1.2rem;
+    }
+    
+    .carousel-prev {
+        left: -15px;
+    }
+    
+    .carousel-next {
+        right: -15px;
+    }
+    
+    /* Registration Form */
+    .registration-section {
+        margin: 20px 1rem;
+        padding: 30px 20px;
+        max-width: none;
+    }
+    
+    .registration-title {
+        font-size: 1.6rem;
+    }
+    
+    .registration-subtitle {
+        font-size: 1rem;
+        margin-bottom: 20px;
+    }
+    
+    .registration-form input,
+    .registration-form select {
+        width: 100%;
+        padding: 12px 15px;
+        font-size: 0.9rem;
+        margin-bottom: 15px;
+    }
+    
+    .registration-form button {
+        width: 100%;
+        padding: 12px 20px;
+        font-size: 1rem;
+    }
+    
+    /* Confirmation Page */
+    .confirmation-container {
+        margin: 80px 1rem 40px 1rem;
+        padding: 40px 20px;
+        max-width: none;
+        max-height: none;
+    }
+    
+    .confirmation-title {
+        font-size: 1.8rem;
+    }
+    
+    .confirmation-message {
+        font-size: 1.1rem;
+        margin-bottom: 30px;
+    }
+    
+    .share-section {
+        padding: 25px 20px;
+        margin: 30px 0;
+    }
+    
+    .share-text {
+        font-size: 1.1rem;
+        padding-left: 0;
+        text-align: center;
+        margin-bottom: 25px;
+    }
+    
+    .share-buttons {
+        flex-direction: column;
+        align-items: center;
+        gap: 15px;
+    }
+    
+    .share-btn {
+        width: 100%;
+        max-width: 200px;
+        padding: 15px 25px;
+        font-size: 1rem;
+    }
+    
+    /* Post Funnel */
+    #postfunnel-hero {
+        padding: 30px 1rem;
+        min-height: 60vh;
+    }
+    
+    #postfunnel-hero h1 {
+        font-size: 2rem;
+    }
+    
+    #postfunnel-hero p {
+        font-size: 1rem;
+    }
+    
+    #goToNext {
+        padding: 15px 30px;
+        font-size: 1rem;
+    }
+}
+
+/* ========================================
+   SMALL TABLET RESPONSIVE DESIGN (481px - 768px)
+   ======================================== */
+@media (min-width: 481px) and (max-width: 768px) {
+    /* Prevent horizontal scrolling */
+    body {
+        overflow-x: hidden;
+    }
+    
+    /* Header adjustments */
+    header {
+        height: 90px;
+        padding: 0 1.5rem;
+    }
+    
+    .logo img {
+        width: 220px;
+        height: 85px;
+    }
+    
+    /* Hero sections */
+    .hero-title,
+    .hero-title1 {
+        font-size: 2.2rem;
+        margin-top: 120px;
+        padding: 0 1.5rem;
+        line-height: 1.3;
+    }
+    
+    .video-intro {
+        margin-top: 50px;
+        font-size: 1rem;
+        padding: 0 1.5rem;
+    }
+    
+    .video-intro .line {
+        width: 35px;
+    }
+    
+    /* Video wrapper */
+    .video-wrapper {
+        width: 90%;
+        margin: 30px auto;
+    }
+    
+    .play-pause-btn,
+    .fullscreen-btn {
+        width: 50px;
+        height: 50px;
+        font-size: 20px;
+        bottom: 18px;
+    }
+    
+    .play-pause-btn { left: 18px; }
+    .fullscreen-btn { right: 18px; }
+    
+    .progress-container {
+        left: 18px;
+        right: 18px;
+        bottom: 8px;
+    }
+    
+    /* About section */
+    .about {
+        margin: 60px 1.5rem 80px 1.5rem;
+        padding: 40px 30px;
+    }
+    
+    .about h2 {
+        font-size: 1.9rem;
+    }
+    
+    .about p {
+        font-size: 1.3rem;
+        line-height: 1.7;
+    }
+    
+    /* Card container */
+    .card-container {
+        margin: 40px 1.5rem;
+        gap: 25px;
+        justify-content: center;
+    }
+    
+    .card {
+        width: 280px;
+        height: 380px;
+    }
+    
+    .card-upper {
+        height: 90px;
+        padding: 22px;
+    }
+    
+    .card-upper h2 {
+        font-size: 1.3rem;
+    }
+    
+    .card-bottom {
+        padding: 22px;
+    }
+    
+    .card-bottom p,
+    .card-bottom li {
+        font-size: 1rem;
+    }
+    
+    /* CTA Buttons */
+    .cta-btn {
+        font-size: 1.3rem;
+        padding: 11px 25px;
+    }
+    
+    .cta-btn.joinNowBtn {
+        width: 160px;
+        font-size: 1.1rem;
+        padding: 9px 18px;
+    }
+    
+    .cta-button1,
+    .cta-button2 {
+        width: 70px;
+        margin: 35px auto 18px auto;
+    }
+    
+    .next-text {
+        font-size: 20px;
+        letter-spacing: 2px;
+    }
+    
+    /* FAQ Section */
+    .faq-container {
+        margin: 40px 1.5rem;
+        gap: 30px;
+    }
+    
+    .faq-title {
+        font-size: 1.4rem;
+        margin: 40px 1.5rem 25px 1.5rem;
+    }
+    
+    .faq-question {
+        font-size: 0.95rem;
+        padding: 12px 15px;
+    }
+    
+    .faq-answer p {
+        font-size: 0.9rem;
+        padding: 0 15px 18px 15px;
+    }
+    
+    /* Reviews Carousel */
+    .reviews-section {
+        padding: 50px 1.5rem;
+    }
+    
+    .reviews-title {
+        font-size: 1.7rem;
+        margin-bottom: 40px;
+    }
+    
+    .review-card {
+        padding: 35px 25px;
+    }
+    
+    .review-text {
+        font-size: 1.05rem;
+    }
+    
+    .carousel-prev,
+    .carousel-next {
+        width: 45px;
+        height: 45px;
+        font-size: 1.4rem;
+    }
+    
+    .carousel-prev {
+        left: -20px;
+    }
+    
+    .carousel-next {
+        right: -20px;
+    }
+    
+    /* Registration Form */
+    .registration-section {
+        margin: 25px 1.5rem;
+        padding: 40px 25px;
+    }
+    
+    .registration-title {
+        font-size: 1.8rem;
+    }
+    
+    .registration-subtitle {
+        font-size: 1.1rem;
+        margin-bottom: 25px;
+    }
+    
+    .registration-form input,
+    .registration-form select {
+        width: 85%;
+        padding: 14px 12px;
+        font-size: 0.95rem;
+        margin-bottom: 18px;
+    }
+    
+    .registration-form button {
+        padding: 14px 30px;
+        font-size: 1.05rem;
+    }
+    
+    /* Confirmation Page */
+    .confirmation-container {
+        margin: 100px 1.5rem 60px 1.5rem;
+        padding: 50px 30px;
+    }
+    
+    .confirmation-title {
+        font-size: 2.2rem;
+    }
+    
+    .confirmation-message {
+        font-size: 1.3rem;
+        margin-bottom: 40px;
+    }
+    
+    .share-section {
+        padding: 35px 25px;
+        margin: 40px 0;
+    }
+    
+    .share-text {
+        font-size: 1.2rem;
+        padding-left: 40px;
+        margin-bottom: 35px;
+    }
+    
+    .share-buttons {
+        gap: 18px;
+    }
+    
+    .share-btn {
+        padding: 16px 30px;
+        font-size: 1.05rem;
+        min-width: 140px;
+    }
+    
+    /* Post Funnel */
+    #postfunnel-hero {
+        padding: 35px 1.5rem;
+        min-height: 70vh;
+    }
+    
+    #postfunnel-hero h1 {
+        font-size: 2.5rem;
+    }
+    
+    #postfunnel-hero p {
+        font-size: 1.1rem;
+    }
+    
+    #goToNext {
+        padding: 16px 35px;
+        font-size: 1.05rem;
+    }
+}
+
+/* ========================================
+   TABLET RESPONSIVE DESIGN (769px - 1024px)
+   ======================================== */
+@media (min-width: 769px) and (max-width: 1024px) {
+    /* Prevent horizontal scrolling */
+    body {
+        overflow-x: hidden;
+    }
+    
+    /* Header adjustments */
+    header {
+        height: 95px;
+        padding: 0 2rem;
+    }
+    
+    .logo img {
+        width: 240px;
+        height: 90px;
+    }
+    
+    /* Hero sections */
+    .hero-title,
+    .hero-title1 {
+        font-size: 2.4rem;
+        margin-top: 130px;
+        padding: 0 2rem;
+        line-height: 1.3;
+    }
+    
+    .video-intro {
+        margin-top: 60px;
+        font-size: 1.05rem;
+        padding: 0 2rem;
+    }
+    
+    .video-intro .line {
+        width: 38px;
+    }
+    
+    /* Video wrapper */
+    .video-wrapper {
+        width: 85%;
+        margin: 40px auto;
+    }
+    
+    .play-pause-btn,
+    .fullscreen-btn {
+        width: 55px;
+        height: 55px;
+        font-size: 21px;
+        bottom: 20px;
+    }
+    
+    .play-pause-btn { left: 20px; }
+    .fullscreen-btn { right: 20px; }
+    
+    .progress-container {
+        left: 20px;
+        right: 20px;
+        bottom: 10px;
+    }
+    
+    /* About section */
+    .about {
+        margin: 70px 2rem 90px 2rem;
+        padding: 50px 35px;
+    }
+    
+    .about h2 {
+        font-size: 2rem;
+    }
+    
+    .about p {
+        font-size: 1.4rem;
+        line-height: 1.75;
+    }
+    
+    /* Card container */
+    .card-container {
+        margin: 50px 2rem;
+        gap: 30px;
+        justify-content: center;
+    }
+    
+    .card {
+        width: 290px;
+        height: 390px;
+    }
+    
+    .card-upper {
+        height: 95px;
+        padding: 24px;
+    }
+    
+    .card-upper h2 {
+        font-size: 1.35rem;
+    }
+    
+    .card-bottom {
+        padding: 24px;
+    }
+    
+    .card-bottom p,
+    .card-bottom li {
+        font-size: 1.05rem;
+    }
+    
+    /* CTA Buttons */
+    .cta-btn {
+        font-size: 1.4rem;
+        padding: 12px 28px;
+    }
+    
+    .cta-btn.joinNowBtn {
+        width: 170px;
+        font-size: 1.15rem;
+        padding: 10px 20px;
+    }
+    
+    .cta-button1,
+    .cta-button2 {
+        width: 75px;
+        margin: 40px auto 20px auto;
+    }
+    
+    .next-text {
+        font-size: 22px;
+        letter-spacing: 2.5px;
+    }
+    
+    /* FAQ Section */
+    .faq-container {
+        margin: 50px 2rem;
+        gap: 35px;
+    }
+    
+    .faq-title {
+        font-size: 1.45rem;
+        margin: 50px 2rem 30px 2rem;
+    }
+    
+    .faq-question {
+        font-size: 1rem;
+        padding: 14px 18px;
+    }
+    
+    .faq-answer p {
+        font-size: 0.95rem;
+        padding: 0 18px 20px 18px;
+    }
+    
+    /* Reviews Carousel */
+    .reviews-section {
+        padding: 60px 2rem;
+    }
+    
+    .reviews-title {
+        font-size: 1.9rem;
+        margin-bottom: 45px;
+    }
+    
+    .review-card {
+        padding: 40px 30px;
+    }
+    
+    .review-text {
+        font-size: 1.08rem;
+    }
+    
+    .carousel-prev,
+    .carousel-next {
+        width: 48px;
+        height: 48px;
+        font-size: 1.5rem;
+    }
+    
+    .carousel-prev {
+        left: -22px;
+    }
+    
+    .carousel-next {
+        right: -22px;
+    }
+    
+    /* Registration Form */
+    .registration-section {
+        margin: 30px 2rem;
+        padding: 45px 30px;
+    }
+    
+    .registration-title {
+        font-size: 1.9rem;
+    }
+    
+    .registration-subtitle {
+        font-size: 1.15rem;
+        margin-bottom: 28px;
+    }
+    
+    .registration-form input,
+    .registration-form select {
+        width: 85%;
+        padding: 15px 15px;
+        font-size: 1rem;
+        margin-bottom: 20px;
+    }
+    
+    .registration-form button {
+        padding: 15px 35px;
+        font-size: 1.08rem;
+    }
+    
+    /* Confirmation Page */
+    .confirmation-container {
+        margin: 110px 2rem 70px 2rem;
+        padding: 55px 35px;
+    }
+    
+    .confirmation-title {
+        font-size: 2.3rem;
+    }
+    
+    .confirmation-message {
+        font-size: 1.4rem;
+        margin-bottom: 45px;
+    }
+    
+    .share-section {
+        padding: 40px 30px;
+        margin: 45px 0;
+    }
+    
+    .share-text {
+        font-size: 1.25rem;
+        padding-left: 45px;
+        margin-bottom: 40px;
+    }
+    
+    .share-buttons {
+        gap: 20px;
+    }
+    
+    .share-btn {
+        padding: 17px 32px;
+        font-size: 1.08rem;
+        min-width: 150px;
+    }
+    
+    /* Post Funnel */
+    #postfunnel-hero {
+        padding: 40px 2rem;
+        min-height: 75vh;
+    }
+    
+    #postfunnel-hero h1 {
+        font-size: 2.8rem;
+    }
+    
+    #postfunnel-hero p {
+        font-size: 1.15rem;
+    }
+    
+    #goToNext {
+        padding: 17px 38px;
+        font-size: 1.08rem;
+    }
+}
+
+/* ========================================
+   DESKTOP OPTIMIZATIONS (1025px and above)
+   ======================================== */
+@media (min-width: 1025px) {
+    /* Ensure desktop layout remains optimal */
+    .video-wrapper {
+        width: 70%;
+        max-width: 1200px;
+    }
+    
+    .card-container {
+        max-width: 1200px;
+        margin: 60px auto;
+    }
+    
+    .registration-section {
+        max-width: 500px;
+    }
+    
+    .confirmation-container {
+        max-width: 900px;
+    }
+}
+
+/* ========================================
+   ADDITIONAL MOBILE OPTIMIZATIONS
+   ======================================== */
+@media (max-width: 480px) {
+    /* Ensure all text elements don't overflow */
+    h1, h2, h3, p, li {
+        word-wrap: break-word;
+        overflow-wrap: break-word;
+    }
+    
+    /* Fix any potential image overflow */
+    img {
+        max-width: 100%;
+        height: auto;
+    }
+    
+    /* Ensure buttons don't overflow */
+    button, .cta-btn, .share-btn {
+        max-width: 100%;
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+    }
+    
+    /* Fix video intro text overflow */
+    .video-intro {
+        flex-direction: column;
+        gap: 10px;
+        text-align: center;
+    }
+    
+    .video-intro .line {
+        width: 50px;
+        height: 1px;
+    }
+    
+    /* Ensure cards don't overflow on very small screens */
+    .card {
+        min-width: 280px;
+    }
+    
+    /* Fix FAQ text overflow */
+    .faq-question {
+        white-space: normal;
+        line-height: 1.4;
+    }
+    
+    /* Ensure review cards don't overflow */
+    .review-card {
+        min-width: 280px;
+    }
+    
+    /* Fix confirmation page on very small screens */
+    .confirmation-container {
+        min-width: 280px;
+        padding: 30px 15px;
+    }
+    
+    /* Fix popup for mobile */
+    #popupOverlay div {
+        width: 95% !important;
+        height: 80vh !important;
+        margin: 0 auto;
+    }
+}
+
+/* ========================================
+   ACCESSIBILITY AND TOUCH IMPROVEMENTS
+   ======================================== */
+@media (max-width: 768px) {
+    /* Increase touch targets for better mobile experience */
+    button, .cta-btn, .share-btn, .faq-question {
+        min-height: 44px; /* iOS recommended minimum touch target */
+        min-width: 44px;
+    }
+    
+    /* Improve tap spacing */
+    .card-container {
+        gap: 15px;
+    }
+    
+    /* Better spacing for touch */
+    .registration-form input,
+    .registration-form select,
+    .registration-form button {
+        margin-bottom: 20px;
+    }
+    
+    /* Improve carousel touch targets */
+    .carousel-prev,
+    .carousel-next {
+        min-width: 44px;
+        min-height: 44px;
+    }
+    
+    /* Ensure indicators are properly sized for touch */
+    .indicator {
+        min-width: 44px;
+        min-height: 44px;
+    }
 }
