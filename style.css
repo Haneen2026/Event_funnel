@@ -960,21 +960,24 @@ header {
 }
 
 .reviews-container {
-    max-width: 600px;
+    max-width: 900px;
     margin: 0 auto;
     position: relative;
-    overflow: visible;   /* ✅ الحل */
+    overflow: hidden; /* Hide overflow but keep cards centered */
+    padding: 0 60px; /* Add padding for arrows */
   }
 
 .reviews-carousel {
   display: flex;
   transition: transform 0.6s cubic-bezier(0.4, 0, 0.2, 1);
   will-change: transform;
+  align-items: center; /* Center cards vertically */
 }
 
 .review-card {
   min-width: 100%;
-  padding: 40px 30px;
+  max-width: 100%;
+  padding: 50px 40px;
   background: white;
   border-radius: 20px;
   box-shadow: 0 8px 25px rgba(45, 105, 51, 0.1);
@@ -984,6 +987,7 @@ header {
   transition: all 0.6s cubic-bezier(0.4, 0, 0.2, 1);
   text-align: center;
   position: relative;
+  box-sizing: border-box; /* Ensure padding doesn't affect width */
 }
 
 .review-card.active {
@@ -1049,6 +1053,7 @@ header {
   justify-content: center;
   gap: 10px;
   margin-top: 30px;
+  padding: 0 20px;
 }
 
 .indicator {
@@ -1097,11 +1102,11 @@ header {
 
 
 .carousel-prev {
-  left: 10px;   /* داخل الكاروسيل */
+  left: 0;   /* Keep within container */
 }
 
 .carousel-next {
-  right: 10px;  /* داخل الكاروسيل */
+  right: 0;  /* Keep within container */
 }
 
 .carousel-prev:hover,
@@ -1131,6 +1136,12 @@ header {
     font-size: 1.8rem;
   }
 
+  .reviews-container {
+    max-width: 100%;
+    padding: 0 50px;
+    margin: 0 10px;
+  }
+
   .review-card {
     padding: 30px 20px;
   }
@@ -1140,11 +1151,28 @@ header {
     width: 50px;
     height: 50px;
     font-size: 1.5rem;
-    left: -25px;
+  }
+
+  .carousel-prev {
+    left: 0;
   }
 
   .carousel-next {
-    right: -25px;
+    right: 0;
+  }
+  
+  .indicator {
+    width: 1px;
+    height: 1px;
+  }
+  
+  .carousel-indicators {
+    gap: 2px;
+    margin-top: 20px;
+  }
+  
+  .indicator.active {
+    transform: scale(1);
   }
 }
 
@@ -1414,8 +1442,19 @@ header {
         margin-bottom: 30px;
     }
     
+    .reviews-container {
+        max-width: 100%;
+        padding: 0 45px;
+        margin: 0 5px;
+    }
+    
     .review-card {
         padding: 25px 20px;
+        width: 90%; /* 90% width on mobile */
+        margin: 0 auto; /* Center the card */
+        min-width: 90%;
+        max-width: 90%;
+        box-sizing: border-box;
     }
     
     .review-text {
@@ -1430,11 +1469,28 @@ header {
     }
     
     .carousel-prev {
-        left: -15px;
+        left: 0;
     }
     
     .carousel-next {
-        right: -15px;
+        right: 0;
+    }
+    
+    .indicator {
+        width: 7px;
+        height: 7px;
+        background: rgba(45, 105, 51, 0.3);
+        border: 1px solid rgba(45, 105, 51, 0.5);
+    }
+    
+    .indicator.active {
+        background: rgb(45, 105, 51);
+        border: 1px solid rgb(45, 105, 51);
+    }
+    
+    .carousel-indicators {
+        gap: 5px;
+        margin-top: 15px;
     }
     
     /* Registration Form */
@@ -1690,8 +1746,15 @@ header {
         margin-bottom: 40px;
     }
     
+    .reviews-container {
+        max-width: 100%;
+        padding: 0 55px;
+        margin: 0 10px;
+    }
+    
     .review-card {
         padding: 35px 25px;
+        min-width: 100%;
     }
     
     .review-text {
@@ -1706,11 +1769,21 @@ header {
     }
     
     .carousel-prev {
-        left: -20px;
+        left: 0;
     }
     
     .carousel-next {
-        right: -20px;
+        right: 0;
+    }
+    
+    .indicator {
+        width: 7px;
+        height: 7px;
+    }
+    
+    .carousel-indicators {
+        gap: 6px;
+        margin-top: 20px;
     }
     
     /* Registration Form */
@@ -1958,8 +2031,15 @@ header {
         margin-bottom: 45px;
     }
     
+    .reviews-container {
+        max-width: 100%;
+        padding: 0 65px;
+        margin: 0 15px;
+    }
+    
     .review-card {
         padding: 40px 30px;
+        min-width: 100%;
     }
     
     .review-text {
@@ -1974,11 +2054,21 @@ header {
     }
     
     .carousel-prev {
-        left: -22px;
+        left: 0;
     }
     
     .carousel-next {
-        right: -22px;
+        right: 0;
+    }
+    
+    .indicator {
+        width: 7px;
+        height: 7px;
+    }
+    
+    .carousel-indicators {
+        gap: 7px;
+        margin-top: 22px;
     }
     
     /* Registration Form */
@@ -2153,6 +2243,56 @@ header {
         height: 80vh !important;
         margin: 0 auto;
     }
+    
+    /* Enhanced carousel fixes for very small screens */
+    .reviews-container {
+        padding: 0 40px; /* Further reduced padding */
+        max-width: 100%;
+        margin: 0 5px;
+    }
+    
+    .carousel-prev,
+    .carousel-next {
+        width: 35px;
+        height: 35px;
+        font-size: 1rem;
+        box-shadow: 0 4px 15px rgba(45, 105, 51, 0.3);
+    }
+    
+    .carousel-prev {
+        left: 5px;
+    }
+    
+    .carousel-next {
+        right: 5px;
+    }
+    
+    .review-card {
+        padding: 20px 15px;
+        min-width: 100%;
+        max-width: 100%;
+        box-sizing: border-box;
+    }
+    
+    .review-text {
+        font-size: 0.9rem;
+    }
+    
+    .author-avatar {
+        width: 40px;
+        height: 40px;
+        font-size: 1rem;
+    }
+    
+    .indicator {
+        width: 5px;
+        height: 5px;
+    }
+    
+    .carousel-indicators {
+        gap: 4px;
+        margin-top: 15px;
+    }
 }
 
 /* ========================================
@@ -2186,7 +2326,7 @@ header {
     
     /* Ensure indicators are properly sized for touch */
     .indicator {
-        min-width: 44px;
-        min-height: 44px;
+        min-width: 15px;
+        min-height: 15px;
     }
 }
